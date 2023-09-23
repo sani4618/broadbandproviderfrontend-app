@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 
 const Addcustomer = () => {
-  return (
+    const[AddNewCus,SetNewCustomer]=useState(
+        {
+            customerid:"",
+            customerName:"",
+            broadbandplan:"",
+            mobileNo:"",
+            subDate:"",
+            NxtSubDate:"",
+            amount:"",
+            address:"",
+            pincode:"",
+            ntwid:""
+        }
+    )
+    const newReg=(event)=>{
+        SetNewCustomer({...AddNewCus,[event.target.name]:event.target.value})
+    }
+    const displayReg=()=>{
+        console.log(AddNewCus)
+    }
+      return (
     <div>
         <Header/>
         <div className="container">
@@ -11,17 +31,17 @@ const Addcustomer = () => {
                     <div className="row g-3">
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Customer Id</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" name="customerid" value={AddNewCus.customerid} className="form-control" onChange={newReg}/>
                         </div>
 
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Customer Name</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" name="customerName" value={AddNewCus.customerName} className="form-control"  onChange={newReg}/>
                         </div>
                         
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Broadband Plan</label>
-                            <select name="" id="" className="form-control">
+                            <select name="broadbandplan" value={AddNewCus.broadbandplan} id="" className="form-control"  onChange={newReg}>
                                 <option value="basic">Basic</option>
                                 <option value="standard">Standard</option>
                                 <option value="professional">Professional</option>
@@ -31,51 +51,42 @@ const Addcustomer = () => {
                         
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Mobile Number</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" name="mobileNo" value={AddNewCus.mobileNo} className="form-control" onChange={newReg}/>
                         </div>
                         
-                        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                            <label htmlFor="" className="form label">Subscribed</label>
-                            <select name="" id="" className="form-control">
-                                <option value="Basic">Basic</option>
-                                <option value="Standard">Standard</option>
-                                <option value="Professional">Professional</option>
-                                <option value="">Infinity</option>
-                            </select>
-                        </div>
-                        
+                                                
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Subscription Date</label>
-                            <input type="date" name="" id="" className="form-control" />
+                            <input type="date" name="subDate" value={AddNewCus.subDate} id="" className="form-control"  onChange={newReg}/>
                         </div>
                         
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Next Subscription Date</label>
-                            <input type="date" name="" id="" className="form-control" />
+                            <input type="date" name="NxtSubDate" value={AddNewCus.NxtSubDate} id="" className="form-control"  onChange={newReg} />
                         </div>
                         
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Amount</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" className="form-control" name="amount" value={AddNewCus.amount}  onChange={newReg}/>
                         </div>
 
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Address</label>
-                             <textarea name="" id="" cols="30" rows="5" className="form-control"></textarea>
+                             <textarea name="address" value={AddNewCus.address} id="" cols="30" rows="5" className="form-control"  onChange={newReg}></textarea>
                         </div>
                         
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Pincode</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" name="pincode" value={AddNewCus.pincode} className="form-control"  onChange={newReg} />
                         </div>
 
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Network Id</label>
-                            <input type="text" className="form-control" />
+                            <input type="text" name="ntwid" value={AddNewCus.ntwid} className="form-control" onChange={newReg}/>
                         </div>
                         
                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                            <button className="btn btn-success">Add Customer</button>
+                            <button onClick={displayReg} className="btn btn-success">Add Customer</button>
                         </div>
                     </div>
                 </div>
