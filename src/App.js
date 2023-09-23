@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Addcustomer from './components/Addcustomer';
 import Search from './components/Search';
 import Delete from './components/Delete';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/Addcus"exact element={<Addcustomer/>}/>
       <Route path="/search"exact element={<Search/>}/>
       <Route path="/delete"exact element={<Delete/>}/>
+      <Route path="/login" exact element={<Login/>}/>
       </Routes>
              
       </BrowserRouter>
