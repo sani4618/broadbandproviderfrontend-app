@@ -88,6 +88,9 @@ const Addcustomer = () => {
                         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                             <button onClick={displayReg} className="btn btn-success">Add Customer</button>
                         </div>
+                        <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <a href="/">Back to home</a>
+                        </div>
                     </div>
                 </div>
             </div>
