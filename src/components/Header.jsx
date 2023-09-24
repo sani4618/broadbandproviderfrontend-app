@@ -32,6 +32,9 @@ const Header = () => {
                         <li className="nav-item">
                           <a className="nav-link active" aria-current="page" href="/delete">Delete</a>
                         </li>
+                        <li className="nav-item">
+                          <a className="nav-link active" aria-current="page" href="/view">Customer Details</a>
+                        </li>
                       </ul>
 
                     </div>
