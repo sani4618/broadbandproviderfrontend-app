@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from './Header'
+import axios from 'axios'
 
 const Addcustomer = () => {
     const[AddNewCus,SetNewCustomer]=useState(
@@ -21,10 +21,33 @@ const Addcustomer = () => {
     }
     const displayReg=()=>{
         console.log(AddNewCus)
+        const applink="http://127.0.0.1:8000/api/newreg/"
+        axios.post(applink,AddNewCus).then(
+            (response)=>{
+                console.log(response.data)
+                if(response.data.status=="Registered Successfully")
+                {
+                    alert("Registered successfully")
+                    SetNewCustomer({
+                        customerid:"",
+                        customerName:"",
+                        broadbandplan:"",
+                        mobileNo:"",
+                        subDate:"",
+                        NxtSubDate:"",
+                        amount:"",
+                        address:"",
+                        pincode:"",
+                        ntwid:""
+                    })
+                }
+
+            }
+        )
     }
       return (
     <div>
-        <Header/>
+       
         <div className="container">
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
