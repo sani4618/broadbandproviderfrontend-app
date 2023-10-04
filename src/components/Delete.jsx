@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Header from './Header'
+import axios from 'axios'
 
 const Delete = () => {
+   
     const [newDelete,setNewDelete]=useState(
         {
            customerid:""
@@ -11,8 +13,26 @@ const Delete = () => {
         setNewDelete({...newDelete,[event.target.name]:event.target.value})
     }
     const displayDelete=()=>{
-        console.log(newDelete)
+        //console.log(newDelete)
+        const appLink = "http://127.0.0.1:8000/api/delete/"
+
+        axios.post(appLink,newDelete).then(
+            (response) => {
+                console.log(response.data)
+                if(response.data.status=="Deleted Successfully")
+                {
+                    alert("Deleted")
+                }
+                else{
+                    alert("error")
+                }
+               
+
+            }
+        )
+   
     }
+    
   return (
     <div>
         <Header/>

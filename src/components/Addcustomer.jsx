@@ -65,6 +65,9 @@ const Addcustomer = () => {
                         <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                             <label htmlFor="" className="form-label">Broadband Plan</label>
                             <select name="broadbandplan" value={AddNewCus.broadbandplan} id="" className="form-control"  onChange={newReg}>
+
+                            <option value="">select an Option</option>
+
                                 <option value="basic">Basic</option>
                                 <option value="standard">Standard</option>
                                 <option value="professional">Professional</option>

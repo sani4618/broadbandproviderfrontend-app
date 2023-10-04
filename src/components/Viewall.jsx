@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Header from './Header'
+
 
 const appLink="http://127.0.0.1:8000/api/viewall/"
 const Viewall = () => {
@@ -21,6 +23,7 @@ const Viewall = () => {
 
   return (
     <div>
+      <Header/>
 
 <div className="container">
     <div className="row">

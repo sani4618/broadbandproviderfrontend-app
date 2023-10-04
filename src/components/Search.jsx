@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Search = () => {
     const [data, setData] = useState([])
+    const [isLoading,setIsLoading]=useState(false)
     const [newSearch, SetNewSearch] = useState(
         {
             customerid: ""
@@ -14,12 +15,21 @@ const Search = () => {
 
     }
     const dispalySearch = () => {
+        setIsLoading(true)
         //  console.log(newSearch)
         const appLink = "http://127.0.0.1:8000/api/search/"
         axios.post(appLink, newSearch).then(
             (response) => {
                 console.log(response.data)
+
+                if (  (response.data.length) == 0 ) {
+                    alert("INVALID CUSTOMER ID")
+                }
+
+
                 setData(response.data)
+
+                setIsLoading(false)
 
             }
         )
@@ -40,8 +50,8 @@ const Search = () => {
                        
                         </div>
                         
-
-                        {data.map(
+                          {isLoading ? <p> Loading......</p>   : 
+                        data.map(
                             (value, index) => {
                                 return <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-XXl-12">
                                     <div class="card">
@@ -61,7 +71,7 @@ const Search = () => {
                                     </div>
                                 </div>
                             }
-                        )}
+                        )}   
 
 
 
